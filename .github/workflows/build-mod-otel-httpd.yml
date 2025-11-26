@@ -63,7 +63,10 @@ jobs:
       - name: Install build tools & dependencies
         run: |
           dnf install -y epel-release
-          dnf install -y gcc make curl-devel httpd-devel libtool
+          dnf install -y \
+            gcc make libtool \
+            curl-devel httpd-devel \
+            redhat-rpm-config
 
       - name: Checkout source
         uses: actions/checkout@v4
@@ -83,3 +86,4 @@ jobs:
         with:
           name: mod_otel_http-rhel9-amd64
           path: artifacts/*
+
