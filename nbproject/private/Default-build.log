@@ -1,0 +1,9 @@
+apxs -c \
+    -Wc,"-Wall -O2" \
+    -Wl,"-lcurl" \
+    mod_otel_http.c
+/usr/share/apr-1.0/build/libtool  --mode=compile --tag=disable-static aarch64-linux-gnu-gcc -prefer-pic -pipe -g -O2 -flto=auto -ffat-lto-objects -fstack-protector-strong -Wformat -Werror=format-security  -Wdate-time -D_FORTIFY_SOURCE=2   -DLINUX -D_REENTRANT -D_GNU_SOURCE   -I/usr/include/apache2  -I/usr/include/apr-1.0   -I/usr/include/apr-1.0 -I/usr/include -Wall -O2  -c -o mod_otel_http.lo mod_otel_http.c && touch mod_otel_http.slo
+libtool: compile:  aarch64-linux-gnu-gcc -pipe -g -O2 -flto=auto -ffat-lto-objects -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -DLINUX -D_REENTRANT -D_GNU_SOURCE -I/usr/include/apache2 -I/usr/include/apr-1.0 -I/usr/include/apr-1.0 -I/usr/include -Wall -O2 -c mod_otel_http.c  -fPIC -DPIC -o .libs/mod_otel_http.o
+/usr/share/apr-1.0/build/libtool  --mode=link --tag=disable-static aarch64-linux-gnu-gcc -Wl,--as-needed -Wl,-Bsymbolic-functions -flto=auto -ffat-lto-objects -Wl,-z,relro -Wl,-z,now    -o mod_otel_http.la -lcurl  -rpath /usr/lib/apache2/modules -module -avoid-version    mod_otel_http.lo
+libtool: link: aarch64-linux-gnu-gcc -shared  -fPIC -DPIC  .libs/mod_otel_http.o   -lcurl  -Wl,--as-needed -Wl,-Bsymbolic-functions -flto=auto -Wl,-z -Wl,relro -Wl,-z -Wl,now   -Wl,-soname -Wl,mod_otel_http.so -o .libs/mod_otel_http.so
+libtool: link: ( cd ".libs" && rm -f "mod_otel_http.la" && ln -s "../mod_otel_http.la" "mod_otel_http.la" )
