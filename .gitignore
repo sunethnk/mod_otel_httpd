@@ -1,3 +1,6 @@
 .libs/*
 *.slo
+*.la
+*.lo
 nbbroject/*
+

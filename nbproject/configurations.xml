@@ -2,6 +2,11 @@
 <configurationDescriptor version="100">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <df root="/root/src/mod_otel_httpd" name="0">
+      <df name=".github">
+        <df name="workflow">
+          <in>build-module.yml</in>
+        </df>
+      </df>
       <df name="test">
         <in>otel-local.yaml</in>
         <in>run-collector.sh</in>
@@ -44,6 +49,11 @@
           <preBuildCommand></preBuildCommand>
         </preBuild>
       </makefileType>
+      <item path="/root/src/mod_otel_httpd/.github/workflow/build-module.yml"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="/root/src/mod_otel_httpd/.gitignore"
             ex="false"
             tool="3"
