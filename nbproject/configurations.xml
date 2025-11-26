@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="100">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df root="/root/src/mod_otel_httpd" name="0">
+      <df name="test">
+        <in>otel-local.yaml</in>
+        <in>run-collector.sh</in>
+      </df>
+      <in>.gitignore</in>
+      <in>mod_otel_http.c</in>
+      <in>mod_otel_http.conf</in>
+    </df>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>/root/src/mod_otel_httpd/Makefile</itemPath>
+      <itemPath>/root/src/mod_otel_httpd/nbproject/private/launcher.properties</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
+  <sourceRootList>
+    <Elem>/root/src/mod_otel_httpd</Elem>
+  </sourceRootList>
+  <projectmakefile>/root/src/mod_otel_httpd/Makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>false</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <codeAssistance>
+      </codeAssistance>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>/root/src/mod_otel_httpd</buildCommandWorkingDir>
+          <buildCommand>${MAKE} -f Makefile</buildCommand>
+          <cleanCommand>${MAKE} -f Makefile clean</cleanCommand>
+          <executablePath></executablePath>
+        </makeTool>
+        <preBuild>
+          <preBuildCommandWorkingDir>.</preBuildCommandWorkingDir>
+          <preBuildCommand></preBuildCommand>
+        </preBuild>
+      </makefileType>
+      <item path="/root/src/mod_otel_httpd/.gitignore"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/root/src/mod_otel_httpd/mod_otel_http.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="/root/src/mod_otel_httpd/mod_otel_http.conf"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/root/src/mod_otel_httpd/test/otel-local.yaml"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/root/src/mod_otel_httpd/test/run-collector.sh"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
