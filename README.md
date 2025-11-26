@@ -348,19 +348,25 @@ processors:
   batch:
 
 exporters:
-  logging:
-    loglevel: debug
+  debug:
+    verbosity: detailed
 
 service:
+  telemetry:
+    logs:
+      level: debug
+
   pipelines:
     logs:
       receivers: [otlp]
       processors: [batch]
-      exporters: [logging]
+      exporters: [debug]
+
     traces:
       receivers: [otlp]
       processors: [batch]
-      exporters: [logging]
+      exporters: [debug]
+
 ```
 
 ### 2. Generate Test Requests
