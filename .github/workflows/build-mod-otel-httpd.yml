@@ -1,64 +1,52 @@
 name: Build mod_otel_http
-
-on:
+'on':
   push:
     tags:
-      - 'v*'
+      - v*
   workflow_dispatch: {}
-
 jobs:
   build-ubuntu:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - name: Install Apache dev & curl dev
         run: |
           sudo apt-get update
           sudo apt-get install -y apache2-dev libcurl4-openssl-dev
-
       - name: Build module
         run: make
-
       - name: Collect artifacts
         run: |
           mkdir -p artifacts
           cp .libs/mod_otel_http.so artifacts/mod_otel_http_ubuntu_amd64.so
-
       - uses: actions/upload-artifact@v4
         with:
           name: mod_otel_http-ubuntu-amd64
           path: artifacts/*
-
   build-macos:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
-
       - name: Install apache & curl
         run: |
           brew update
           brew install httpd curl
-
       - name: Build module
         env:
           APXS: /opt/homebrew/opt/httpd/bin/apxs
         run: make APXS="$APXS"
-
       - name: Collect artifacts
         run: |
           mkdir -p artifacts
           cp .libs/mod_otel_http.so artifacts/mod_otel_http_macos_amd64.so
-
       - uses: actions/upload-artifact@v4
         with:
           name: mod_otel_http-macos-amd64
           path: artifacts/*
-
   build-rhel:
     runs-on: ubuntu-latest
     container:
-      image: rockylinux:9
+      image: 'rockylinux:9'
     steps:
       - name: Install build tools & dependencies
         run: |
@@ -67,37 +55,33 @@ jobs:
             gcc make libtool \
             curl-devel httpd-devel \
             redhat-rpm-config
-
       - name: Checkout source
         uses: actions/checkout@v4
-
       - name: Build module
         env:
           APXS: /usr/bin/apxs
         run: |
           make APXS="$APXS"
-
       - name: Collect artifacts
         run: |
           mkdir -p artifacts
           cp .libs/mod_otel_http.so artifacts/mod_otel_http_rhel9_amd64.so
-
       - uses: actions/upload-artifact@v4
         with:
           name: mod_otel_http-rhel9-amd64
           path: artifacts/*
- build-ubuntu-arm64:
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v4
-    - run: |
-        sudo apt-get update
-        sudo apt-get install -y apache2-dev libcurl4-openssl-dev
-    - run: make
-    - run: |
-        mkdir -p artifacts
-        cp .libs/mod_otel_http.so artifacts/mod_otel_http_ubuntu_arm64.so
-    - uses: actions/upload-artifact@v4
-      with:
-        name: mod_otel_http-ubuntu-arm64
-        path: artifacts/*
+  build-ubuntu-arm64:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          sudo apt-get update
+          sudo apt-get install -y apache2-dev libcurl4-openssl-dev
+      - run: make
+      - run: |
+          mkdir -p artifacts
+          cp .libs/mod_otel_http.so artifacts/mod_otel_http_ubuntu_arm64.so
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mod_otel_http-ubuntu-arm64
+          path: artifacts/*
